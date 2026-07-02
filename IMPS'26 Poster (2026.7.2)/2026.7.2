@@ -1,1 +1,457 @@
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    font=\large,
+    model/.style={
+        rectangle,
+        thick,
+        minimum width = 1cm,
+        minimum height = 1cm,
+        align = center,
+        inner sep=6pt
+    },
+    binary-categorical/.style={
+        draw,
+        rectangle,
+        dashed, ultra thick,
+        minimum width = 1cm,
+        minimum height = 1cm,
+        align = center,
+        inner sep=6pt
+    },    
+    physics_cross/.style={model, fill=blue!10},
+    physics_time/.style={model, fill=blue!45},
+    ML_cross/.style={model, fill=cyan!10},
+    ML_time/.style={model, fill=cyan!45},
+    Graph_cross/.style={model, fill=magenta!15},
+    Graph_time/.style={model, fill=magenta!45},
+    psychometrics_cross/.style={model, fill=green!10},
+    psychometrics_time/.style={model, fill=green!45},
+    network_cross/.style={model, fill=teal!10},
+    network_time/.style={model, fill=teal!45},
+    econometrics/.style={model, fill=orange!45},
+    relation/.style={-{Latex[length=3mm]}, thick}
+]
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% --- Nodes --- %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% --- Physics / Complex Dynamical Systems --- %%%%%%%%%%
+\node[physics_cross] (IM) at (-55,-6) {
+\textbf{Ising Model (IM)}\\[4pt]
+$p(\bm{x}) \propto \exp\!\left( \sum_i^{n} \mu_i x_i + \sum_{<i,j>} \sigma_{ij} x_i x_j\right)$
+};
+\node[physics_cross] (CW) at (-37,-9) {
+\textbf{Curie-Weiss}
+};
+\node[physics_cross] (BC) at (-55,9) {
+\textbf{Blume-Capel}\\[4pt]
+$p(\bm{x}) \propto \text{IM} + \sum_i^{n} \alpha^2 x_i^2$
+};
+\node[physics_cross] (Potts) at (-60,1) {
+\textbf{Potts}\\[4pt]
+$x_i \in \{1, 2, 3, .., h\}$
+};
+
+
+\node[physics_time] (cusp) at (-4,11) {
+\textbf{Cusp Catastrophe}
+};
+\node[physics_time] (KIM) at (-47,14) {
+\textbf{Kinectic IM}
+};
+\node[physics_time] (RP/RN) at (-26,-17) {
+\textbf{RP $\rightarrow$ RN}
+};
+
+
+
+%%%%%%%%%%% --- Machine Learning / Statistics --- %%%%%%%%%%
+\node[ML_cross] (MRF) at (-55,-22) {
+\textbf{MRF}\\[4pt]
+$p(\bm{x}) \propto \prod_c \psi_c(\bm{x}_c)$
+};
+\node[ML_cross] (logistic) at (-30,-6) {
+\textbf{Logistic Regression}
+};
+\node[ML_cross] (GLM) at (-12,-6) {
+\textbf{GLM}\\[4pt]
+$g(\bm{\eta})=\bm{X}\bm{\beta}$
+};
+\node[ML_cross] (BN) at (-55,-34) {
+\textbf{(D)BN}
+};
+\node[ML_cross] (HRF) at (-50.5,-34) {
+\textbf{HRF}
+};
+\node[ML_cross] (MGM) at (-46,-20) {
+\textbf{MGM}
+};
+\node[ML_cross] (ETM) at (-42,-17) {
+\textbf{Exponential Trace Model}
+};
+\node[ML_cross] (GGM) at (-26,-22) {
+\textbf{GGM}\\[4pt]
+${\bm{\Sigma}} = {\bm{K}}^{-1} = \bm{\Delta} (\bm{I} - \bm{\Omega})^{-1} \bm{\Delta}$
+};
+\node[ML_cross] (LVGGM) at (-16,-27) {
+\textbf{LVGGM}
+};
+\node[ML_cross] (GGIM) at (-18,-31) {
+\textbf{GGIM}
+};
+\node[ML_cross] (cdexGGM) at (-24,-34) {
+\textbf{cdexGGM}
+};
+\node[ML_cross] (latentGGM) at (-19,-36) {
+\textbf{latent GGM}
+};
+\node[ML_cross] (RandomGGM) at (-29,-38) {
+\textbf{Random GGM}
+};
+
+
+\node[ML_time] (TD-MRF) at (-46,-30) {
+\textbf{TD-MRF}\\[4pt]
+$p(\bm{x}) \propto \prod_c \psi_c(\bm{x}_{c}^{t})$
+};
+\node[ML_time] (DTW) at (-4,-28) {
+\textbf{DTW}
+};
+\node[ML_time] (DHRF) at (-42,-34) {
+\textbf{D-HRF}
+};
+\node[ML_time] (HMM) at (-34,-42) {
+\textbf{Hidden Markov Model (HMM)}
+};
+\node[ML_time] (TVGL) at (-38,-30) {
+\textbf{TVGL}
+};
+\node[ML_time] (LTGL) at (-38,-38) {
+\textbf{(L)TGL$_{\kappa/p}$}
+};
+\node[ML_time] (TAGM) at (-34,-34) {
+\textbf{TAGM}
+};
+\node[ML_time] (DynamicGGM) at (-42,-26) {
+\textbf{Dynamic GGM}\\[4pt]
+$\bm{\Sigma}^t = \left(\bm{K}^t\right)^{-1}$
+};
+
+
+
+%%%%%%%%%%% --- Network Psychometrics --- %%%%%%%%%%
+\node[network_cross] (OMRF) at (-59,-14) {
+\textbf{OMRF}
+};
+\node[network_cross] (IdiographicIM) at (-43,2) {
+\textbf{Idiographic IM}\\[4pt]
+$p(\bm{x}) = \sum_{\bm{w}} \overbrace{p(\bm{x} \mid \bm{w})}^{\text {graph coloring }} p(\bm{w})$
+};
+\node[network_cross] (DCM) at (-30,2) {
+\textbf{Divide \& Color}\\[4pt]
+$p(\bm{x}) = \sum_{\bm{w}} \overbrace{p(\bm{x} \mid \bm{w})}^{\text {graph coloring }} p(\bm{w})$
+};
+\node[network_cross] (LNM/RNM) at (-11,-16) {
+\textbf{LNM/RNM}
+};
+\node[network_cross] (EGM) at (-7,-19) {
+\textbf{EGM}
+};
+\node[network_cross] (EGA) at (-11,-19) {
+\textbf{EGA}
+};
+\node[network_cross] (MNM) at (-38,-20) {
+\textbf{MNM}
+};
+
+
+
+\node[network_time] (TD-IM) at (-54,-39) {
+\textbf{time-dependent IM}
+};
+\node[network_time] (multi-VAR) at (-1,-19) {
+\textbf{multi-VAR}
+};
+\node[network_time] (ALSVAR) at (-2,-22) {
+\textbf{ALS VAR}
+};
+\node[network_time] (fitlandr) at (-6,-26) {
+\textbf{fitlandr}
+};
+\node[network_time] (gVAR) at (-12,-24) {
+\textbf{gVAR}
+};
+\node[network_time] (lvgvar) at (-12,-30) {
+\textbf{ts-lvgvar}
+};
+\node[network_time] (mlVAR) at (-1,-30) {
+\textbf{mlVAR}
+};
+\node[network_time] (DynEGA) at (-9,-21) {
+\textbf{DynEGA}
+};
+\node[network_time] (GIMME) at (-1,-12) {
+\textbf{GIMME}
+};
+
+
+
+%%%%%%%%%%% --- Psychometrics --- %%%%%%%%%%
+\node[psychometrics_cross] (E-RM) at (-20,-9) {
+\textbf{E-RM}\\[4pt]
+$p(\bm{x}) \propto \prod_{i=1}^p \beta_i^{x_i} \lambda_{x_+}$
+};
+\node[psychometrics_cross] (M-RM) at (-37,-14) {
+\textbf{M-RM}
+};
+\node[psychometrics_cross] (MD-2PLM) at (-46,-14) {
+\textbf{MD-2PLM}
+};
+\node[psychometrics_cross] (NLFM) at (-14,-13) {
+\textbf{NLFM}\\[4pt]
+$\Rightarrow \bm{\Sigma} = \bm{\Lambda} \bm{\Lambda}^{\top} + \bm{\Psi}$
+};
+\node[psychometrics_cross] (PA) at (5,10) {
+\textbf{Path Analysis}
+};
+\node[psychometrics_cross] (SEM) at (0,4) {
+\textbf{Structural Equation Model (SEM)}\\[4pt]
+$\Rightarrow {\bm{\Sigma}}=\bm{\Lambda}(\bm{I}-\bm{B})^{-1} \bm{\Psi}(\bm{I}-\bm{B})^{-1 \top} \bm{\Lambda}^{\top}+\bm{\Theta}$
+};
+
+
+\node[psychometrics_time] (MSEMRS) at (-5,8) {
+\textbf{MSEM-RS}
+};
+\node[psychometrics_time] (uSEM) at (2,-7) {
+\textbf{uSEM}
+};
+\node[psychometrics_time] (DSEM) at (-1,-34) {
+\textbf{DSEM}
+};
+\node[psychometrics_time] (CLPM) at (4,-33) {
+\textbf{CLPM}
+};
+\node[psychometrics_time] (DFM) at (-1,-40) {
+\textbf{DFM}
+};
+\node[psychometrics_time] (P) at (6,-40) {
+\textbf{P-Technique}
+};
+\node[psychometrics_time] (DLCA) at (-12,-38.5) {
+\textbf{DLCA}
+};
+\node[psychometrics_time] (NDLC-SEM) at (-12,-34) {
+\textbf{NDLC-SEM}
+};
+
+
+
+%%%%%%%%%%% --- Graph Theory / Random Graphs / Network Science --- %%%%%%%%%%
+\node[Graph_cross] (ERGM) at (-12,2) {
+\textbf{ERGM}
+};
+\node[Graph_cross] (ER) at (-19,9) {
+\textbf{Erd\H{o}s--R\'enyi}
+};
+\node[Graph_cross] (GRG) at (-17,0) {
+\textbf{GRG}
+};
+\node[Graph_cross] (RCM) at (-38,9) {
+\textbf{Random Cluster Model}\\[4pt]
+$p(\bm{w}) \propto \prod_{i=1}^{n-1} \prod_{j=i+1}^n \theta_{i j}^{w_{i j}}\left(1-\theta_{i j}\right)^{1-w_{i j}} \lambda^{\kappa(\bm{w})}$
+};
+\node[Graph_cross] (SBM) at (-24,-2) {
+\textbf{SBM}
+};
+\node[Graph_cross] (SIBM) at (-32,-2) {
+\textbf{SIBM}
+};
+
+
+
+\node[Graph_time] (TERGM) at (-12,11) {
+\textbf{TERGM}
+};
+
+
+
+%%%%%%%%%%% --- Econometrics --- %%%%%%%%%%
+\node[econometrics] (VAR) at (7,-24) {
+\textbf{VAR(1)}\\[4pt]
+$\bm{y}_t = \bm{B} \bm{y}_{t-1}+ \bm{\varepsilon}_t$
+};
+\node[econometrics] (SVAR) at (2,-15) {
+\textbf{SVAR}
+};
+\node[econometrics] (latentVARMA) at (6,-36) {
+\textbf{latent VARMA}
+};
+\node[econometrics] (TAR) at (7,0) {
+\textbf{(Hys)TAR}
+};
+\node[econometrics] (ART) at (5,-5) {
+\textbf{ART}
+};
+\node[econometrics] (DLM) at (9.5,-42) {
+\textbf{DLM}
+};
+\node[econometrics] (VDAR) at (8,14) {
+\textbf{VDAR}
+};
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% --- Relations --- %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%% --- Ising Model (IM) --- %%%%%%%%%%
+\draw[relation] (IM) -- (CW.west) node[fill=white, midway, sloped] {$\sigma_{i,j} = \sigma$};
+\draw[relation] (IM) -- (KIM.south) node[fill=white, midway, sloped] {$T>1$};
+\draw[relation] (IM) -- (MD-2PLM.north) node[fill=white, midway, sloped, font=\small]{Kac’s integral};
+\draw[relation] (IM) -- (logistic) node[fill=white, midway] {$X_i \mid \bm{X}^{(i)}$};
+\draw[] (IM) -- (IdiographicIM.south) node[fill=white, midway] {$\sigma_{i j} = -\frac{1}{2} \log \left(1-\theta_{i j}\right)$};
+\draw[relation] (IM.south west) to[bend right=20] (TD-IM); 
+
+
+\draw[relation] (BC.south) -- (IM) node[fill=white, near start] {$\alpha = 0$};
+\draw[relation] (Potts.south) -- (IM) node[fill=white, midway, sloped] {$h=2$};
+
+\draw[relation] (MRF) -- (IM) node[fill=white, midway, sloped, font=\small] {Binary RV};
+\draw[relation] (MRF) -- (OMRF) node[fill=white, midway, sloped, font=\small] {Ordinal RV};
+\draw[relation] (OMRF) -- (IM) node[fill=white, midway, sloped, font=\small] {$m=1$};
+\draw[relation] (TD-MRF) -- (MRF) node[fill=white, midway] {$T=1$};
+\draw[relation] (DHRF) -- (HRF) node[fill=white, midway] {$T=1$};
+
+
+\draw[relation] (ER) -- (DCM.north) node[fill=white, midway] {$p(\bm{w})$};
+\draw[relation] (RCM) -- (IdiographicIM.north) node[fill=white, midway] {$p(\bm{w})$};
+
+\draw[] (KIM) -- (TERGM);
+
+%%%%%%%%%%% --- Item Response Theory (IRT) --- %%%%%%%%%%
+\draw[relation] (M-RM) -- (CW.south) node[fill=white, midway] {$f(\theta) = g(\theta)$};
+\draw[relation] (E-RM.south) -- (M-RM.east) node[fill=white, midway, font=\small] {moment seq. $\lambda$};
+\draw[] (E-RM) -- (CW.east) node[fill=white, midway, sloped] {$\begin{aligned}
+    \log \beta_i &= \mu_i \\
+    \log \lambda_{x_{+}} &= \sigma x_{+}^2
+    \end{aligned}$};
+\draw[dashed] (MD-2PLM.east) -- (M-RM.west);
+
+
+
+\draw[relation] (RandomGGM) -- (GGM) node[fill=white, midway, sloped] {$a_{ij} =1$};
+\draw[relation] (cdexGGM) -- (GGM) node[fill=white, midway, sloped] {$x_m^{(h)} = 0 \: \forall \: h$};
+\draw[relation] (gVAR) -- (GGM) node[fill=white, midway, sloped] {$\bm{B} = \bm{0}$};
+\draw[relation] (MRF) -- (GGM) node[fill=white, midway, font=\small] {Gaussian RV};
+
+%%%%%%%%%%% --- Gaussian Graphical Model --- %%%%%%%%%%
+\draw[relation] (GGM) -- (TAGM);
+\draw[relation] (GGM) -- (DynamicGGM.east) node[fill=white, midway, sloped] {$T>1$};
+\draw[relation] (GGM) -- (LNM/RNM.west);
+\draw[relation] (GGM) -- (LVGGM.west) node[fill=white, midway, sloped] {$- \bm{L}_{\bm{\Omega}}$};
+\draw[relation] (GGM) -- (GGIM);
+\draw[relation] (GGM) -- (latentGGM) node[fill=white, midway, sloped, font=\small] {binary/mixed RV};
+\draw[relation] (GGM) -- (EGA.west) node[fill=white, midway, sloped, font=\small] {+ walktrap};
+\draw[relation] (GGM) -- (TVGL.east) node[fill=white, midway, sloped] {$T > 1$};
+\draw[relation] (GGM) -- (MNM);
+\draw[dashed] (GGM) -- (RP/RN);
+\draw[] (GGM) -- (NLFM.west) node[fill=white, midway, sloped, font=\small] {Woodbury identity};
+
+\draw[relation] (TVGL) -- (LTGL) node[fill=white, midway] {$\bm{L}$};
+
+\draw[relation] (ETM.east) -- (GGM.north);
+\draw[relation] (ETM.north west) -- (IM);
+
+
+
+\draw[relation] (EGM) -- (EGA);
+\draw[relation] (EGA) -- (DynEGA);
+
+\draw[relation] (MGM) -- (MNM);
+\draw[relation] (MGM) -- (MRF);
+
+\draw[relation] (GLM) -- (logistic.east) node[fill=white, midway, sloped, font=\small] {logit link};
+\draw[relation] (GLM) -- (NLFM);
+
+\draw[relation] (SEM) -- (GLM.east);
+\draw[relation] (SEM) -- (LNM/RNM.north east);
+\draw[relation] (SEM) -- (MSEMRS);
+
+
+\draw[] (ERGM) -- (GLM);
+\draw[relation] (ERGM) -- (TERGM) node[fill=white, midway] {$T > 1$};
+\draw[relation] (ERGM) -- (ER);
+
+\draw[relation] (ER) -- (GRG) node[fill=white, midway] {$\theta = \theta_{i,j}$};
+
+\draw[relation] (SBM) -- (ER) node[fill=white, midway] {$K=1$};
+\draw[relation] (SBM) -- (SIBM);
+\draw[relation] (IM) -- (SIBM);
+
+\draw[relation] (RCM) -- (ER) node[fill=white, midway] {$\lambda^{\kappa(\bm{w})}=1$};
+
+\draw[relation] (SEM) -- (PA) node[fill=white, midway] {$\bm{\Lambda}=\bm{I}; \bm{\Theta}=\bm{0}$};
+\draw[relation] (SEM) -- (uSEM) node[fill=white, midway] {$T>1$};
+\draw[relation] (SVAR) -- (uSEM);
+
+\draw[relation] (uSEM) -- (GIMME);
+
+\draw[relation] (gVAR) -- (lvgvar);
+
+\draw[dashed] (MSEMRS) -- (cusp);
+
+
+%%%%%%%%%%% --- Dynamic Latent Variable Models (Psychometrics) --- %%%%%%%%%%
+\draw[relation] (DSEM) -- (NDLC-SEM) node[fill=white, midway] {$\Omega_2 h_2\left(\eta_{2 i}\right)$};
+\draw[relation] (DSEM) -- (mlVAR);
+\draw[relation] (DSEM) -- (DLCA.east);
+\draw[relation] (DSEM) -- (VAR);
+\draw[relation] (DLCA) -- (NDLC-SEM) node[fill=white, midway] {$\alpha_{itdc}$};
+\draw[dashed] (NDLC-SEM) -- (lvgvar);
+
+\draw[dashed] (CLPM) -- (VAR);
+\draw[dashed] (CLPM) -- (DSEM);
+
+\draw[relation] (DLM.north) to[bend right=25] (VAR);
+
+\draw[relation] (DFM) -- (latentVARMA);
+
+\draw[relation] (VAR) -- (ALSVAR.east);
+\draw[relation] (VAR) -- (SVAR) node[fill=white, midway] {$+ \bm{A} \bm{y}_t $};
+\draw[relation] (VAR) -- (gVAR);
+\draw[relation] (VAR) -- (latentVARMA);
+\draw[relation] (VAR) -- (multi-VAR.south east);
+\draw[relation] (VAR) -- (mlVAR);
+\draw[relation] (VAR) -- (ART) node[fill=white, midway, sloped, rotate=180, font=\small] {Matrix $\rightarrow$ Tensor};
+\draw[relation] (VAR) -- (TAR);
+\draw[dashed] (VAR) -- (fitlandr);
+\draw[relation] (VAR) to[bend right=20] node[fill=white, midway, sloped, font=\small] {Binary} (VDAR);
+\draw[] (VDAR) -- (KIM);
+
+\draw[relation] (DFM) -- (DSEM) node[fill=white, midway, sloped, font=\small] {multilevel};
+\draw[relation] (DFM) -- (HMM);
+\draw[relation] (DFM) -- (P);
+
+\draw[relation] (MRF) -- (BN) node[fill=white, midway, sloped, rotate=180, font=\small] {DAG};
+\draw[relation] (MRF) -- (HRF);
+
+\draw[relation] (BN) -- (HRF);
+\draw[relation] (BN.south) -- (HMM);
+
+\draw[dashed] (HMM) -- (DLM);
+\draw[relation] (HMM) -- (DLCA.west) node[fill=white, midway, sloped] {$\left[Y_{1, i t} \mid S_{i t}\right]$};
+\draw[relation] (HMM) -- (TAGM);
+\draw[relation] (HMM.west) -- (TD-IM.east);
+\end{tikzpicture}
+
+
+
+\caption{\underline{Areas of Research}: \colorbox{green!10}{Psychometrics}/ \colorbox{green!45}{\phantom{text}}, \colorbox{teal!10}{Network Psychometrics}/ \colorbox{teal!45}{\phantom{text}}, \colorbox{orange!45}{Econometrics}, \colorbox{cyan!10}{Statistics \& Machine Learning}/ \colorbox{cyan!45}{\phantom{text}}, \colorbox{magenta!10}{Graph Theory \& Network Science}/ \colorbox{magenta!45}{\phantom{text}}, \colorbox{blue!10}{Physics}/ \colorbox{blue!45}{\phantom{text}} (light colored for cross-sectional and darker colored for time-series data ).\\
+\underline{Models}: Autoregressive Tensor Model (ART), Cross-Lagged Panel Model (CLPM), covariate-dependent GGM (cdexGGM), Dynamic Bayesian Network (DBN), Dynamic Factor Model (DFM), Dynamic Hybrid Random Field (D-HRF), Dynamic Linear Model (DLM), Dynamic Structural Equation Model (DSEM), Dynamic Time Warping (DTW), Erd\H{o}s--R\'enyi (ER or Random Graph Model), Exploratory Graph Analysis (EGA), Exploratory Graph Model (EGM), Exponential Random Graph Model (ERGM), Extended Rasch Model (E-RM), Gaussian Graphical Interaction Model (GGIM), Gaussian Graphical Model (GGM), Generalized Linear Model (GLM), Generalized Random Graph (GRG), graphical VAR (gVAR), Group Iterative Multiple Model Estimation (GIMME), Hysteretic Threshold Autoregressive (HysTAR), Hybrid Random Field (HRF), Latent Network Modeling (LNM), Latent Variable Gaussian Graphical Models (LVGGM), Latent Variable Time-Varying Graphical Lasso (LTGL), Latent Variable Time-Varying Graphical Lasso with pattern inference (LTGL$_p$), Latent Variable Time-Varying Graphical Lasso with temporal kernel (LTGL$_\kappa$), Marginal Rasch Model (M-RM), Markov Random Field (MRF), Mixed Graphical Model (MGM), Mixture SEM with Regime-Switching (MSEM-RS), Moderated Network Model (MNM), Multidimensional 2-Parameter Logistic Model (MD-2PLM),  Nonlinear Dynamic Latent Class - Structural Equation Modeling (NDLC-SEM), Ordinal Markov Random Field (OMRF), Residual Network Modeling (RNM), Structural Vector Autoregressive (SVAR), Stochastic Block Ising Model (SBIM), Stochastic Block Model (SBM), Temporal Exponential Random Graph Model (TERGM), Time Adaptive Gaussian Model (TAGM), Time-Dynamic Markov Random Field (TD-MRF), Time-Varying Graphical Lasso (TVGL), unified SEM (uSEM), Vector Autoregressive (VAR), Vector Discrete Autoregressive (VDAR)}
+\end{figure}
