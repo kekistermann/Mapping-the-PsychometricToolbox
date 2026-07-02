@@ -1,4 +1,4 @@
-# Mapping-the-PsychometricToolbox
+# Mapping-the-PsychometricToolbox [![DOI](https://zenodo.org/badge/1235487433.svg)](https://doi.org/10.5281/zenodo.21129486)
 
 The idea and plan is to itteratively extend this...
 
