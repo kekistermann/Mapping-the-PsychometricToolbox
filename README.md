@@ -1,5 +1,7 @@
 # Mapping-the-PsychometricToolbox
 
+The idea and plan is to itteratively extend this...
+
 ## The Map (Vesions: year.month.day)
 - IMPS'26 Poster (2026.5.15)
 - **IMPS'26 Poster (2026.7.2)**
