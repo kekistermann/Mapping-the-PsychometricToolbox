@@ -1,7 +1,7 @@
 # Mapping-the-PsychometricToolbox [![DOI](https://zenodo.org/badge/1235487433.svg)](https://doi.org/10.5281/zenodo.21129486)
 
 ***The idea and plan is to itteratively extend this.
-+ create a more accessible format for it (e.g. **https://www.math.wm.edu/~leemis/chart/UDR/UDR.html**, **https://statproofbook.github.io/**, **https://www.psychomodels.org/**, **https://nnnvd.github.io/THEORYlex/**, 
++ create a more accessible format for it (e.g., **https://www.math.wm.edu/~leemis/chart/UDR/UDR.html**, **https://statproofbook.github.io/**, **https://www.psychomodels.org/**, **https://nnnvd.github.io/THEORYlex/**) 
 
 ## The Map (Vesions: year.month.day)
 - IMPS'26 Poster (2026.5.15)
