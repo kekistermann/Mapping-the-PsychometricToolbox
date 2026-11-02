@@ -6,6 +6,9 @@
 ## The Map (Vesions: year.month.day)
 - IMPS'26 Poster (2026.5.15)
 - **IMPS'26 Poster (2026.7.2)**
+<p align="center">
+  <img src="figures/2026.7.2_Poster_A0.jpg" width="700"/>
+</p>
 
 
 ## additional Models
